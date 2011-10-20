@@ -69,18 +69,18 @@ FIND_PACKAGE(Gettext REQUIRED)
 
 
 SET(SRC_LOGGER
-                logger_pi.h
- 		logger_pi.cpp
-		ConfigDialog.h
-		ConfigDialog.cpp
-		ConfigDialogImpl.h
-		ConfigDialogImpl.cpp
+                src/logger_pi.h
+ 		src/logger_pi.cpp
+		src/ConfigDialog.h
+		src/ConfigDialog.cpp
+		src/ConfigDialogImpl.h
+		src/ConfigDialogImpl.cpp
  	)
 
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_LOGGER} )
 
 IF(WIN32)
-  SET(OPENCPN_IMPORT_LIB "../../../${CMAKE_CFG_INTDIR}/${PARENT}")
+  SET(OPENCPN_IMPORT_LIB "../../${CMAKE_CFG_INTDIR}/${PARENT}")
   TARGET_LINK_LIBRARIES( ${PACKAGE_NAME} ${OPENCPN_IMPORT_LIB} )
   ADD_DEPENDENCIES(${PACKAGE_NAME} ${PARENT})
 ENDIF(WIN32)
